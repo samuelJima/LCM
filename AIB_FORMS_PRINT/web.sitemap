@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="~/" title="GUI" description="">
+    <siteMapNode url="" title="Security" description="" >
+      <siteMapNode url="~/AIB_SECURITY/createAccount.aspx" title="User Management" description=""  />
+      <siteMapNode url="~/AIB_SECURITY/RoleManagement.aspx" title="Role Management" description=""  />
+      <siteMapNode url="~/AIB_SECURITY/ResourceManagement.aspx" title="Resource Management" description="" />
+      <siteMapNode url="~/AIB_SECURITY/accountSetting.aspx" title="Account Setting" description="" />
+    </siteMapNode>
+    <siteMapNode url="" title="Letter Of Credit" description="">
+      <siteMapNode url="~/FORMS_GUI/lcFormSevenNew.aspx" title="LC Opening" description="" />
+      <siteMapNode url="~/FORMS_GUI/lcOpeningAddition.aspx" title="LC Increment" description="" />
+      <siteMapNode url="~/FORMS_GUI/lcExtension.aspx" title="LC Extention" description="" />
+      <siteMapNode url="~/FORMS_GUI/lcFormEight.aspx" title="LC Advice Sight" description="" />
+      <siteMapNode url="~/FORMS_GUI/lcFormNine.aspx" title="LC Settlement sight" description="" />
+      <siteMapNode url="~/FORMS_GUI/lcFormTen.aspx" title="LC Cancelation" description="" />
+    </siteMapNode>
+    <siteMapNode url="" title="LC-Settings " description="">
+      <siteMapNode url="~/FORMS_GUI/banksRegistration.aspx" title="Banks Registration" description="Rembursing Registration" />
+      <siteMapNode url="~/FORMS_GUI/updatecurrency.aspx" title="Update Currency" description="" />
+      <siteMapNode url="~/FORMS_GUI/branchsRegistration.aspx" title="Branchs Registration" description="" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

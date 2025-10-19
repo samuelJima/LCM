@@ -1,0 +1,98 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AIB_FORMS_PRINT.SiteMaster" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> Application</title>
+    <asp:PlaceHolder ID="PlaceHolder1" runat="server">     
+          <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>  
+    <webopt:BundleReference ID="BundleReference1" runat="server" Path="~/Content/css" /> 
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+  
+  <script src="../../crystalreportviewers13/js/crviewer/crv.js"></script>
+    <script type="text/javascript">
+
+          function changeControls() {
+              var e = document.getElementById("combbankType");
+              var strUser = e.options[e.selectedIndex].value;
+              if (strUser == "0") {
+                  var row = document.getElementById("op1")
+                  row.style = 'visibility:hidden';
+                  var row1 = document.getElementById("op2")
+                  row1.style = 'visibility:hidden';
+              }
+              else {
+
+                  var row2 = document.getElementById("rm1")
+                  row2.style = 'visibility:hidden';
+
+                  var row3 = document.getElementById("rm2")
+                  row3.style = 'visibility:hidden';
+              }
+          }
+
+          function SetTarget() {
+
+              document.forms[0].target = "_blank";
+
+          }
+    </script>
+</head>
+<body style="background-color: #00b1ff; background-repeat:no-repeat;background-size:cover; background-image:url('../Images/logoNew.png')" >
+    <form runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+           
+        </telerik:RadScriptManager>
+
+        <telerik:RadFormDecorator Runat="server"/> 
+    
+    <header>
+        <div style="float:left; margin-left:40px">
+            <asp:Image runat="server" ImageUrl="~/Images/aibLogo.png" Width="60px" />
+        </div>
+      
+      <div style="float: right; margin-left: 10px; text-decoration: none">
+            <asp:LinkButton  ID="btnLogOut" ForeColor="White" runat="server" OnClick="btnLogOut_Click"></asp:LinkButton>
+        </div>
+        <div style="float: right; margin-left: 10px; text-decoration: none">
+            <asp:HyperLink ID="hprHelp" ForeColor="White" runat="server" Target="_blank" Text="Help|"></asp:HyperLink>
+        </div>
+        <div style="float: right; margin-left: 10px; text-align: right; text-decoration: none">
+            <asp:HyperLink ID="hprHome" ForeColor="White" runat="server" NavigateUrl="~/Default.aspx"
+                Text="Home|"></asp:HyperLink>
+        </div>
+       
+       <%--  <div style="float: right; margin-left: 10px; text-decoration: none">
+            <asp:LinkButton ID="btnAmharic" CommandArgument="am-ET" ForeColor="White" runat="server" OnClick="RequestLanguageChange_Click" Text="አማርኛ|"></asp:LinkButton>
+        </div>
+        <div style="float: right; margin-left: 10px; text-decoration: none;">
+            <asp:LinkButton ID="btnEnglish"  CommandArgument="en-US" ForeColor="White" runat="server" OnClick="RequestLanguageChange_Click" Text="English|"></asp:LinkButton>
+        </div>--%>
+        <div style="height: 54px">
+            <asp:Image ID="Image3" runat="server" Height="20px" ImageUrl="~/Images/admin.jpeg" />
+            <asp:Label ID="lbluser" runat="server" Style="color: White; font-weight: 700"></asp:Label>
+        </div>
+          <div style=" margin-left:420PX; margin-top:-60px" >
+            <h3 style="color:white; margin-left:50px" >አዋሽ ኢንተርናሽናል ባንክ</h3>      
+            <h3 style="color:white"> AWASH INTERNATIONAL BANK </h3>
+        </div>
+    </header>
+    <div id="body" style="background-color:white; height:690px">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section>
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+    <footer  style="background-color: #00b1ff; height:40px; background-repeat:no-repeat;background-size:cover; background-image:url('../Images/logoNew.png')">
+        <div class="content-wrapper" >
+            <div class="float-left">
+                <p style="color:White">&copy; <%: DateTime.Now.Year %> - LC Forms Printing Application</p>
+            </div>
+        </div>
+    </footer>
+    </form>
+</body>
+</html>

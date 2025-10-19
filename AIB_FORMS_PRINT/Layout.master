@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="AIB_FORMS_PRINT.Layout" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server" >
+     
+    <asp:Table runat="server" ID="mastTable" >
+        <asp:TableRow >
+            <asp:TableCell Width="15%">
+                <asp:ContentPlaceHolder runat="server" ID="LeftContent" >
+                   
+                <div style="float:left; position:initial; height:690px">
+                       
+               <%--  <asp:UpdatePanel ID="pnlUserSetting" runat="server"/>--%>
+                
+                    
+                  
+                      <%-- <h2> Menu</h2> --%> 
+                    <telerik:RadPanelBar ID="RadPanelBar1" runat="server" DataFieldID="Title"
+                        DataNavigateUrlField="Url" DataSourceID="RadSiteMapDataSource1"
+                        DataTextField="Title" DataValueField="Title" Skin="Black" Width="200px" Height="100%" OnItemDataBound="RadPanelBar1_ItemDataBound1">  <%--OnItemDataBound="RadPanelBar1_ItemDataBound1"--%>
+                       </telerik:RadPanelBar>
+                      <br />
+                        <telerik:RadSiteMapDataSource ID="RadSiteMapDataSource1" runat="server" SiteMapFile="~/web.sitemap"
+                          ShowStartingNode="false" />
+                 
+                   </div>
+                  
+                </asp:ContentPlaceHolder>
+            </asp:TableCell>
+            <asp:TableCell Width="70%">
+     <asp:UpdatePanel ID="UpdateMessage" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <br />
+            <telerik:RadTicker ID="RadTicker1" runat="server" autoadvance="False" 
+                backcolor="White" borderstyle="None" 
+                style="text-align: center;position:absolute; margin-top:-230px" visible="False" width="100%">
+                <Items>
+                    <telerik:RadTickerItem ID="item1" runat="server" Font-Size="XX-Small" 
+                       NavigateUrl="" 
+                        Style="text-align: center; color : Green; font-weight:bold"></telerik:RadTickerItem>
+                </Items>
+            </telerik:RadTicker>
+            <asp:ContentPlaceHolder ID="MiddleContent" runat="server">
+            </asp:ContentPlaceHolder>  
+            <div class="titlebarlabel" style="width: auto; height: auto;">
+        
+          <asp:Label ID="lbltitle" runat="server" ></asp:Label><br />
+         </div>
+        </ContentTemplate>
+      
+    </asp:UpdatePanel>            
+            </asp:TableCell>
+            <asp:TableCell Width="12%">
+                <asp:ContentPlaceHolder runat="server" ID="RightContent">
+                   
+                    <asp:UpdatePanel ID="UpdateLeftPanel" runat="server" UpdateMode="Conditional" Visible="true" ChildrenAsTriggers="false">
+                        <ContentTemplate>
+
+
+                         </ContentTemplate>
+                    </asp:UpdatePanel>
+      
+
+                </asp:ContentPlaceHolder>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+</asp:Content>
