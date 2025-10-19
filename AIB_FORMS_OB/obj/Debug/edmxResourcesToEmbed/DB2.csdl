@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AIBSITModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AIBSITEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOUNTs" EntityType="AIBSITModel.ACCOUNT" />
+    <EntitySet Name="EXCHANGERATES" EntityType="AIBSITModel.EXCHANGERATE" />
+    <EntitySet Name="EXCHANGERATESHISTORies" EntityType="AIBSITModel.EXCHANGERATESHISTORY" />
+    <EntitySet Name="BFTB_BRANCH" EntityType="AIBSITModel.BFTB_BRANCH" />
+    <EntitySet Name="CUSTOMERBRANCHes" EntityType="AIBSITModel.CUSTOMERBRANCH" />
+  </EntityContainer>
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="ACCOUNTID" />
+    </Key>
+    <Property Name="ACCOUNTID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PRODUCTID" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+    <Property Name="ISOCURRENCYCODE" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+    <Property Name="PSEUDONAME" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ACCOUNTDESCRIPTION" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ACCOUNTNAME" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="CLEAREDBALANCE" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="BOOKEDBALANCE" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="CHEQUEDEPOSITBALANCE" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="LASTINTERESTACCRUALDATE" Type="DateTime" Precision="0" />
+    <Property Name="CREDITLIMIT" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="DEBITLIMIT" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="JOINTACCOUNT" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="OPENDATE" Type="DateTime" Precision="0" />
+    <Property Name="OPENEDBYUSER" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="LASTSTATICAMENDMENTDATE" Type="DateTime" Precision="6" />
+    <Property Name="AMENDEDBYUSER" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="LASTTRANSACTIONDATE" Type="DateTime" Precision="0" />
+    <Property Name="STOPPED" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="STOPPEDBYUSER" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="STOPDATE" Type="DateTime" Precision="0" />
+    <Property Name="STOPREASON" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="STOPCODE" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CLOSED" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="CLOSUREDATE" Type="DateTime" Precision="0" />
+    <Property Name="DATEOFDORMANCY" Type="DateTime" Precision="0" />
+    <Property Name="DORMANTSTATUS" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="MINOPENINGBALANCEAMOUNT" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="LOWESTBALANCE" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="LOWESTBALANCEDATE" Type="DateTime" Precision="0" />
+    <Property Name="PASSBOOKINDICATOR" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="FEEWAIVEINDICATOR" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="LIMITEXCESSACTION" Type="Int32" />
+    <Property Name="LIMITINDICATOR" Type="Int32" />
+    <Property Name="LIMITREF1" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="LIMITREF2" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="LIMITREF3" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="LIMITREF4" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="LIMITREF5" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="LIMITREVIEWDATE" Type="DateTime" Precision="6" />
+    <Property Name="LIMITEXPIRYDATE" Type="DateTime" Precision="6" />
+    <Property Name="LASTCREDITLIMITCHANGEDATE" Type="DateTime" Precision="0" />
+    <Property Name="LASTDEBITLIMITCHANGEDATE" Type="DateTime" Precision="0" />
+    <Property Name="TAXINDICATORCR" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="TAXINDICATORDR" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="PEROUTERPROFILEID" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+    <Property Name="STANDINGORDER" Type="Int32" />
+    <Property Name="SERVICEFEE" Type="Int32" />
+    <Property Name="TAXATION" Type="Int32" />
+    <Property Name="VERSIONNUM" Type="Int32" />
+    <Property Name="DORMANTREACTIVATIONDATE" Type="DateTime" Precision="0" />
+    <Property Name="BLOCKEDBALANCE" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="LASTINTHISTSTRIPDATE" Type="DateTime" Precision="6" />
+    <Property Name="LASTTRANSHISTSTRIPDATE" Type="DateTime" Precision="6" />
+    <Property Name="ACCOUNTTAKEONDATE" Type="DateTime" Precision="6" />
+    <Property Name="ACCRIGHTSINDICATOR" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="ACCOUNTSTYLE" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="CHARGEFUNDINGACCOUNTID" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="LASTCREDITTRANSDTTM" Type="DateTime" Precision="6" />
+    <Property Name="LASTDEBITTRANSDTTM" Type="DateTime" Precision="6" />
+    <Property Name="TEMPACCOUNTLIMIT" Type="Decimal" Precision="24" Scale="6" />
+    <Property Name="TEMPLIMEXPIRYDATE" Type="DateTime" Precision="6" />
+    <Property Name="PRODUCTCONTEXTCODE" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="BRANCHSORTCODE" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+    <Property Name="UBACCTRANSCOUNTER" Type="Int32" />
+    <Property Name="UBACCOUNTSTATUS" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="UBISARCHIVE" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="UBISDELETE" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+    <Property Name="UBCUSTOMERCODE" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="UBACCRIGHTSINDREASON" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+    <Property Name="UBACCRIGHTSINDCHANGEDT" Type="DateTime" Precision="0" />
+    <Property Name="UBACCRIGHTSINDCHANGEDBY" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="UBINDUSTRYCODE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="EXCHANGERATE">
+    <Key>
+      <PropertyRef Name="CURRENCYRATEID" />
+    </Key>
+    <Property Type="String" Name="CURRENCYRATEID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FROMCURRENCYCODE" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TOCURRENCYCODE" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EXCHANGERATETYPE" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MULTIPLYDIVIDE" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="UPDATEDATE" Precision="0" />
+    <Property Type="Decimal" Name="TOLERANCE" Precision="24" Scale="6" />
+    <Property Type="Decimal" Name="RATE" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT1" Precision="24" Scale="6" />
+    <Property Type="Decimal" Name="RATE2" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT2" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER2" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="RATE3" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT3" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER3" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="RATE4" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT4" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER4" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="RATE5" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT5" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER5" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="RATE6" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT6" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER6" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="VERSIONNUM" />
+    <Property Type="Int16" Name="SPOTPERIODINDAYS" />
+  </EntityType>
+  <EntityType Name="EXCHANGERATESHISTORY">
+    <Key>
+      <PropertyRef Name="EXCHANGERATEHISTORYID" />
+    </Key>
+    <Property Type="String" Name="EXCHANGERATEHISTORYID" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FROMCURRENCYCODE" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TOCURRENCYCODE" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EXCHANGERATETYPE" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MULTIPLYDIVIDE" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="TOLERANCE" Precision="24" Scale="6" />
+    <Property Type="Decimal" Name="RATE" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT1" Precision="24" Scale="6" />
+    <Property Type="Decimal" Name="RATE2" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT2" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER2" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="RATE3" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT3" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER3" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="RATE4" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT4" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER4" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="RATE5" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT5" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER5" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Decimal" Name="RATE6" Precision="24" Scale="8" />
+    <Property Type="Decimal" Name="LIMIT6" Precision="24" Scale="6" />
+    <Property Type="String" Name="REFER6" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="DATELASTMODIFIED" Precision="6" />
+    <Property Type="Int32" Name="VERSIONNUM" />
+  </EntityType>
+  <EntityType Name="BFTB_BRANCH">
+    <Key>
+      <PropertyRef Name="BFBRANCHSORTCODEPK" />
+    </Key>
+    <Property Type="String" Name="BFBRANCHSORTCODEPK" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFBRANCHNAME" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFCONTACTPERSON" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFCONTACTNUMBER" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFADDRESSLINE1" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFADDRESSLINE2" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFADDRESSLINE3" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFADDRESSLINE4" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFADDRESSLINE5" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFADDRESSLINE6" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFADDRESSLINE7" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFPOSTZIPCODE" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFALPHACODE" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFBANKNAME" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFLANGUAGELOCALE" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFVARIANTLOCALE" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFCOUNTRYLOCALE" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="BFRANGEFROM" />
+    <Property Type="Int32" Name="BFRANGETO" />
+    <Property Type="Int32" Name="BFCURRENTVALUE" />
+    <Property Type="String" Name="BFDEPLOYED" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="BFCLEARINGDAYS" />
+    <Property Type="Int32" Name="VERSIONNUM" />
+    <Property Type="String" Name="BFBMBRANCH" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFIMDCODE" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFISOCOUNTRYCODE" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFBICCODE" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFZONE" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BFBRANCHTIMEZONE" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CUSTOMERBRANCH">
+    <Key>
+      <PropertyRef Name="ACCOUNTID" />
+    </Key>
+    <Property Type="String" Name="ACCOUNTID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BRANCHCODE" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BRANCHNAME" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CUSTOMERNAME" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AIBSITModelStoreContainer" CdmEntityContainer="AIBSITEntities">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="AIBSITModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="ACCOUNTID" ColumnName="ACCOUNTID" />
+          <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
+          <ScalarProperty Name="ISOCURRENCYCODE" ColumnName="ISOCURRENCYCODE" />
+          <ScalarProperty Name="PSEUDONAME" ColumnName="PSEUDONAME" />
+          <ScalarProperty Name="ACCOUNTDESCRIPTION" ColumnName="ACCOUNTDESCRIPTION" />
+          <ScalarProperty Name="ACCOUNTNAME" ColumnName="ACCOUNTNAME" />
+          <ScalarProperty Name="CLEAREDBALANCE" ColumnName="CLEAREDBALANCE" />
+          <ScalarProperty Name="BOOKEDBALANCE" ColumnName="BOOKEDBALANCE" />
+          <ScalarProperty Name="CHEQUEDEPOSITBALANCE" ColumnName="CHEQUEDEPOSITBALANCE" />
+          <ScalarProperty Name="LASTINTERESTACCRUALDATE" ColumnName="LASTINTERESTACCRUALDATE" />
+          <ScalarProperty Name="CREDITLIMIT" ColumnName="CREDITLIMIT" />
+          <ScalarProperty Name="DEBITLIMIT" ColumnName="DEBITLIMIT" />
+          <ScalarProperty Name="JOINTACCOUNT" ColumnName="JOINTACCOUNT" />
+          <ScalarProperty Name="OPENDATE" ColumnName="OPENDATE" />
+          <ScalarProperty Name="OPENEDBYUSER" ColumnName="OPENEDBYUSER" />
+          <ScalarProperty Name="LASTSTATICAMENDMENTDATE" ColumnName="LASTSTATICAMENDMENTDATE" />
+          <ScalarProperty Name="AMENDEDBYUSER" ColumnName="AMENDEDBYUSER" />
+          <ScalarProperty Name="LASTTRANSACTIONDATE" ColumnName="LASTTRANSACTIONDATE" />
+          <ScalarProperty Name="STOPPED" ColumnName="STOPPED" />
+          <ScalarProperty Name="STOPPEDBYUSER" ColumnName="STOPPEDBYUSER" />
+          <ScalarProperty Name="STOPDATE" ColumnName="STOPDATE" />
+          <ScalarProperty Name="STOPREASON" ColumnName="STOPREASON" />
+          <ScalarProperty Name="STOPCODE" ColumnName="STOPCODE" />
+          <ScalarProperty Name="CLOSED" ColumnName="CLOSED" />
+          <ScalarProperty Name="CLOSUREDATE" ColumnName="CLOSUREDATE" />
+          <ScalarProperty Name="DATEOFDORMANCY" ColumnName="DATEOFDORMANCY" />
+          <ScalarProperty Name="DORMANTSTATUS" ColumnName="DORMANTSTATUS" />
+          <ScalarProperty Name="MINOPENINGBALANCEAMOUNT" ColumnName="MINOPENINGBALANCEAMOUNT" />
+          <ScalarProperty Name="LOWESTBALANCE" ColumnName="LOWESTBALANCE" />
+          <ScalarProperty Name="LOWESTBALANCEDATE" ColumnName="LOWESTBALANCEDATE" />
+          <ScalarProperty Name="PASSBOOKINDICATOR" ColumnName="PASSBOOKINDICATOR" />
+          <ScalarProperty Name="FEEWAIVEINDICATOR" ColumnName="FEEWAIVEINDICATOR" />
+          <ScalarProperty Name="LIMITEXCESSACTION" ColumnName="LIMITEXCESSACTION" />
+          <ScalarProperty Name="LIMITINDICATOR" ColumnName="LIMITINDICATOR" />
+          <ScalarProperty Name="LIMITREF1" ColumnName="LIMITREF1" />
+          <ScalarProperty Name="LIMITREF2" ColumnName="LIMITREF2" />
+          <ScalarProperty Name="LIMITREF3" ColumnName="LIMITREF3" />
+          <ScalarProperty Name="LIMITREF4" ColumnName="LIMITREF4" />
+          <ScalarProperty Name="LIMITREF5" ColumnName="LIMITREF5" />
+          <ScalarProperty Name="LIMITREVIEWDATE" ColumnName="LIMITREVIEWDATE" />
+          <ScalarProperty Name="LIMITEXPIRYDATE" ColumnName="LIMITEXPIRYDATE" />
+          <ScalarProperty Name="LASTCREDITLIMITCHANGEDATE" ColumnName="LASTCREDITLIMITCHANGEDATE" />
+          <ScalarProperty Name="LASTDEBITLIMITCHANGEDATE" ColumnName="LASTDEBITLIMITCHANGEDATE" />
+          <ScalarProperty Name="TAXINDICATORCR" ColumnName="TAXINDICATORCR" />
+          <ScalarProperty Name="TAXINDICATORDR" ColumnName="TAXINDICATORDR" />
+          <ScalarProperty Name="PEROUTERPROFILEID" ColumnName="PEROUTERPROFILEID" />
+          <ScalarProperty Name="STANDINGORDER" ColumnName="STANDINGORDER" />
+          <ScalarProperty Name="SERVICEFEE" ColumnName="SERVICEFEE" />
+          <ScalarProperty Name="TAXATION" ColumnName="TAXATION" />
+          <ScalarProperty Name="VERSIONNUM" ColumnName="VERSIONNUM" />
+          <ScalarProperty Name="DORMANTREACTIVATIONDATE" ColumnName="DORMANTREACTIVATIONDATE" />
+          <ScalarProperty Name="BLOCKEDBALANCE" ColumnName="BLOCKEDBALANCE" />
+          <ScalarProperty Name="LASTINTHISTSTRIPDATE" ColumnName="LASTINTHISTSTRIPDATE" />
+          <ScalarProperty Name="LASTTRANSHISTSTRIPDATE" ColumnName="LASTTRANSHISTSTRIPDATE" />
+          <ScalarProperty Name="ACCOUNTTAKEONDATE" ColumnName="ACCOUNTTAKEONDATE" />
+          <ScalarProperty Name="ACCRIGHTSINDICATOR" ColumnName="ACCRIGHTSINDICATOR" />
+          <ScalarProperty Name="ACCOUNTSTYLE" ColumnName="ACCOUNTSTYLE" />
+          <ScalarProperty Name="CHARGEFUNDINGACCOUNTID" ColumnName="CHARGEFUNDINGACCOUNTID" />
+          <ScalarProperty Name="LASTCREDITTRANSDTTM" ColumnName="LASTCREDITTRANSDTTM" />
+          <ScalarProperty Name="LASTDEBITTRANSDTTM" ColumnName="LASTDEBITTRANSDTTM" />
+          <ScalarProperty Name="TEMPACCOUNTLIMIT" ColumnName="TEMPACCOUNTLIMIT" />
+          <ScalarProperty Name="TEMPLIMEXPIRYDATE" ColumnName="TEMPLIMEXPIRYDATE" />
+          <ScalarProperty Name="PRODUCTCONTEXTCODE" ColumnName="PRODUCTCONTEXTCODE" />
+          <ScalarProperty Name="BRANCHSORTCODE" ColumnName="BRANCHSORTCODE" />
+          <ScalarProperty Name="UBACCTRANSCOUNTER" ColumnName="UBACCTRANSCOUNTER" />
+          <ScalarProperty Name="UBACCOUNTSTATUS" ColumnName="UBACCOUNTSTATUS" />
+          <ScalarProperty Name="UBISARCHIVE" ColumnName="UBISARCHIVE" />
+          <ScalarProperty Name="UBISDELETE" ColumnName="UBISDELETE" />
+          <ScalarProperty Name="UBCUSTOMERCODE" ColumnName="UBCUSTOMERCODE" />
+          <ScalarProperty Name="UBACCRIGHTSINDREASON" ColumnName="UBACCRIGHTSINDREASON" />
+          <ScalarProperty Name="UBACCRIGHTSINDCHANGEDT" ColumnName="UBACCRIGHTSINDCHANGEDT" />
+          <ScalarProperty Name="UBACCRIGHTSINDCHANGEDBY" ColumnName="UBACCRIGHTSINDCHANGEDBY" />
+          <ScalarProperty Name="UBINDUSTRYCODE" ColumnName="UBINDUSTRYCODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXCHANGERATES">
+      <EntityTypeMapping TypeName="AIBSITModel.EXCHANGERATE">
+        <MappingFragment StoreEntitySet="EXCHANGERATES">
+          <ScalarProperty Name="SPOTPERIODINDAYS" ColumnName="SPOTPERIODINDAYS" />
+          <ScalarProperty Name="VERSIONNUM" ColumnName="VERSIONNUM" />
+          <ScalarProperty Name="REFER6" ColumnName="REFER6" />
+          <ScalarProperty Name="LIMIT6" ColumnName="LIMIT6" />
+          <ScalarProperty Name="RATE6" ColumnName="RATE6" />
+          <ScalarProperty Name="REFER5" ColumnName="REFER5" />
+          <ScalarProperty Name="LIMIT5" ColumnName="LIMIT5" />
+          <ScalarProperty Name="RATE5" ColumnName="RATE5" />
+          <ScalarProperty Name="REFER4" ColumnName="REFER4" />
+          <ScalarProperty Name="LIMIT4" ColumnName="LIMIT4" />
+          <ScalarProperty Name="RATE4" ColumnName="RATE4" />
+          <ScalarProperty Name="REFER3" ColumnName="REFER3" />
+          <ScalarProperty Name="LIMIT3" ColumnName="LIMIT3" />
+          <ScalarProperty Name="RATE3" ColumnName="RATE3" />
+          <ScalarProperty Name="REFER2" ColumnName="REFER2" />
+          <ScalarProperty Name="LIMIT2" ColumnName="LIMIT2" />
+          <ScalarProperty Name="RATE2" ColumnName="RATE2" />
+          <ScalarProperty Name="LIMIT1" ColumnName="LIMIT1" />
+          <ScalarProperty Name="RATE" ColumnName="RATE" />
+          <ScalarProperty Name="TOLERANCE" ColumnName="TOLERANCE" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="MULTIPLYDIVIDE" ColumnName="MULTIPLYDIVIDE" />
+          <ScalarProperty Name="EXCHANGERATETYPE" ColumnName="EXCHANGERATETYPE" />
+          <ScalarProperty Name="TOCURRENCYCODE" ColumnName="TOCURRENCYCODE" />
+          <ScalarProperty Name="FROMCURRENCYCODE" ColumnName="FROMCURRENCYCODE" />
+          <ScalarProperty Name="CURRENCYRATEID" ColumnName="CURRENCYRATEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXCHANGERATESHISTORies">
+      <EntityTypeMapping TypeName="AIBSITModel.EXCHANGERATESHISTORY">
+        <MappingFragment StoreEntitySet="EXCHANGERATESHISTORY">
+          <ScalarProperty Name="VERSIONNUM" ColumnName="VERSIONNUM" />
+          <ScalarProperty Name="DATELASTMODIFIED" ColumnName="DATELASTMODIFIED" />
+          <ScalarProperty Name="REFER6" ColumnName="REFER6" />
+          <ScalarProperty Name="LIMIT6" ColumnName="LIMIT6" />
+          <ScalarProperty Name="RATE6" ColumnName="RATE6" />
+          <ScalarProperty Name="REFER5" ColumnName="REFER5" />
+          <ScalarProperty Name="LIMIT5" ColumnName="LIMIT5" />
+          <ScalarProperty Name="RATE5" ColumnName="RATE5" />
+          <ScalarProperty Name="REFER4" ColumnName="REFER4" />
+          <ScalarProperty Name="LIMIT4" ColumnName="LIMIT4" />
+          <ScalarProperty Name="RATE4" ColumnName="RATE4" />
+          <ScalarProperty Name="REFER3" ColumnName="REFER3" />
+          <ScalarProperty Name="LIMIT3" ColumnName="LIMIT3" />
+          <ScalarProperty Name="RATE3" ColumnName="RATE3" />
+          <ScalarProperty Name="REFER2" ColumnName="REFER2" />
+          <ScalarProperty Name="LIMIT2" ColumnName="LIMIT2" />
+          <ScalarProperty Name="RATE2" ColumnName="RATE2" />
+          <ScalarProperty Name="LIMIT1" ColumnName="LIMIT1" />
+          <ScalarProperty Name="RATE" ColumnName="RATE" />
+          <ScalarProperty Name="TOLERANCE" ColumnName="TOLERANCE" />
+          <ScalarProperty Name="MULTIPLYDIVIDE" ColumnName="MULTIPLYDIVIDE" />
+          <ScalarProperty Name="EXCHANGERATETYPE" ColumnName="EXCHANGERATETYPE" />
+          <ScalarProperty Name="TOCURRENCYCODE" ColumnName="TOCURRENCYCODE" />
+          <ScalarProperty Name="FROMCURRENCYCODE" ColumnName="FROMCURRENCYCODE" />
+          <ScalarProperty Name="EXCHANGERATEHISTORYID" ColumnName="EXCHANGERATEHISTORYID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BFTB_BRANCH">
+      <EntityTypeMapping TypeName="AIBSITModel.BFTB_BRANCH">
+        <MappingFragment StoreEntitySet="BFTB_BRANCH">
+          <ScalarProperty Name="BFBRANCHTIMEZONE" ColumnName="BFBRANCHTIMEZONE" />
+          <ScalarProperty Name="BFZONE" ColumnName="BFZONE" />
+          <ScalarProperty Name="BFBICCODE" ColumnName="BFBICCODE" />
+          <ScalarProperty Name="BFISOCOUNTRYCODE" ColumnName="BFISOCOUNTRYCODE" />
+          <ScalarProperty Name="BFIMDCODE" ColumnName="BFIMDCODE" />
+          <ScalarProperty Name="BFBMBRANCH" ColumnName="BFBMBRANCH" />
+          <ScalarProperty Name="VERSIONNUM" ColumnName="VERSIONNUM" />
+          <ScalarProperty Name="BFCLEARINGDAYS" ColumnName="BFCLEARINGDAYS" />
+          <ScalarProperty Name="BFDEPLOYED" ColumnName="BFDEPLOYED" />
+          <ScalarProperty Name="BFCURRENTVALUE" ColumnName="BFCURRENTVALUE" />
+          <ScalarProperty Name="BFRANGETO" ColumnName="BFRANGETO" />
+          <ScalarProperty Name="BFRANGEFROM" ColumnName="BFRANGEFROM" />
+          <ScalarProperty Name="BFCOUNTRYLOCALE" ColumnName="BFCOUNTRYLOCALE" />
+          <ScalarProperty Name="BFVARIANTLOCALE" ColumnName="BFVARIANTLOCALE" />
+          <ScalarProperty Name="BFLANGUAGELOCALE" ColumnName="BFLANGUAGELOCALE" />
+          <ScalarProperty Name="BFBANKNAME" ColumnName="BFBANKNAME" />
+          <ScalarProperty Name="BFALPHACODE" ColumnName="BFALPHACODE" />
+          <ScalarProperty Name="BFPOSTZIPCODE" ColumnName="BFPOSTZIPCODE" />
+          <ScalarProperty Name="BFADDRESSLINE7" ColumnName="BFADDRESSLINE7" />
+          <ScalarProperty Name="BFADDRESSLINE6" ColumnName="BFADDRESSLINE6" />
+          <ScalarProperty Name="BFADDRESSLINE5" ColumnName="BFADDRESSLINE5" />
+          <ScalarProperty Name="BFADDRESSLINE4" ColumnName="BFADDRESSLINE4" />
+          <ScalarProperty Name="BFADDRESSLINE3" ColumnName="BFADDRESSLINE3" />
+          <ScalarProperty Name="BFADDRESSLINE2" ColumnName="BFADDRESSLINE2" />
+          <ScalarProperty Name="BFADDRESSLINE1" ColumnName="BFADDRESSLINE1" />
+          <ScalarProperty Name="BFCONTACTNUMBER" ColumnName="BFCONTACTNUMBER" />
+          <ScalarProperty Name="BFCONTACTPERSON" ColumnName="BFCONTACTPERSON" />
+          <ScalarProperty Name="BFBRANCHNAME" ColumnName="BFBRANCHNAME" />
+          <ScalarProperty Name="BFBRANCHSORTCODEPK" ColumnName="BFBRANCHSORTCODEPK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERBRANCHes">
+      <EntityTypeMapping TypeName="AIBSITModel.CUSTOMERBRANCH">
+        <MappingFragment StoreEntitySet="CUSTOMERBRANCH">
+          <ScalarProperty Name="CUSTOMERNAME" ColumnName="CUSTOMERNAME" />
+          <ScalarProperty Name="BRANCHNAME" ColumnName="BRANCHNAME" />
+          <ScalarProperty Name="BRANCHCODE" ColumnName="BRANCHCODE" />
+          <ScalarProperty Name="ACCOUNTID" ColumnName="ACCOUNTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

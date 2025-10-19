@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AIBSITModel.Store" Alias="Self" Provider="IBM.Data.DB2" ProviderManifestToken="DB2/AIX64, 10.05.0001, 4668063, 0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AIBSITModelStoreContainer">
+    <EntitySet Name="BFTB_BRANCH" EntityType="AIBSITModel.Store.BFTB_BRANCH" store:Type="Tables" Schema="BFBANKFUSION" />
+    <EntitySet Name="ACCOUNT" EntityType="AIBSITModel.Store.ACCOUNT" store:Type="Tables" Schema="WASADMIN" />
+    <EntitySet Name="EXCHANGERATES" EntityType="AIBSITModel.Store.EXCHANGERATES" store:Type="Tables" Schema="WASADMIN" />
+    <EntitySet Name="EXCHANGERATESHISTORY" EntityType="AIBSITModel.Store.EXCHANGERATESHISTORY" store:Type="Tables" Schema="WASADMIN" />
+    <EntitySet Name="CUSTOMERBRANCH" EntityType="AIBSITModel.Store.CUSTOMERBRANCH" store:Type="Views" store:Schema="AIB" store:Name="CUSTOMERBRANCH">
+      <DefiningQuery>SELECT 
+      CUSTOMERBRANCH.ACCOUNTID AS ACCOUNTID, 
+      CUSTOMERBRANCH.BRANCHCODE AS BRANCHCODE, 
+      CUSTOMERBRANCH.BRANCHNAME AS BRANCHNAME, 
+      CUSTOMERBRANCH.CUSTOMERNAME AS CUSTOMERNAME
+      FROM AIB.CUSTOMERBRANCH AS CUSTOMERBRANCH</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <EntityType Name="BFTB_BRANCH">
+    <Key>
+      <PropertyRef Name="BFBRANCHSORTCODEPK" />
+    </Key>
+    <Property Name="BFBRANCHSORTCODEPK" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="BFBRANCHNAME" Type="varchar" MaxLength="30" />
+    <Property Name="BFCONTACTPERSON" Type="varchar" MaxLength="20" />
+    <Property Name="BFCONTACTNUMBER" Type="varchar" MaxLength="15" />
+    <Property Name="BFADDRESSLINE1" Type="varchar" MaxLength="255" />
+    <Property Name="BFADDRESSLINE2" Type="varchar" MaxLength="255" />
+    <Property Name="BFADDRESSLINE3" Type="varchar" MaxLength="255" />
+    <Property Name="BFADDRESSLINE4" Type="varchar" MaxLength="255" />
+    <Property Name="BFADDRESSLINE5" Type="varchar" MaxLength="255" />
+    <Property Name="BFADDRESSLINE6" Type="varchar" MaxLength="255" />
+    <Property Name="BFADDRESSLINE7" Type="varchar" MaxLength="255" />
+    <Property Name="BFPOSTZIPCODE" Type="varchar" MaxLength="15" />
+    <Property Name="BFALPHACODE" Type="varchar" MaxLength="10" />
+    <Property Name="BFBANKNAME" Type="varchar" MaxLength="30" />
+    <Property Name="BFLANGUAGELOCALE" Type="varchar" MaxLength="30" />
+    <Property Name="BFVARIANTLOCALE" Type="varchar" MaxLength="30" />
+    <Property Name="BFCOUNTRYLOCALE" Type="varchar" MaxLength="30" />
+    <Property Name="BFRANGEFROM" Type="integer" />
+    <Property Name="BFRANGETO" Type="integer" />
+    <Property Name="BFCURRENTVALUE" Type="integer" />
+    <Property Name="BFDEPLOYED" Type="varchar" MaxLength="30" />
+    <Property Name="BFCLEARINGDAYS" Type="integer" />
+    <Property Name="VERSIONNUM" Type="integer" />
+    <Property Name="BFBMBRANCH" Type="varchar" MaxLength="4" />
+    <Property Name="BFIMDCODE" Type="varchar" MaxLength="6" />
+    <Property Name="BFISOCOUNTRYCODE" Type="varchar" MaxLength="3" />
+    <Property Name="BFBICCODE" Type="varchar" MaxLength="20" />
+    <Property Name="BFZONE" Type="varchar" MaxLength="100" />
+    <Property Name="BFBRANCHTIMEZONE" Type="varchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="ACCOUNTID" />
+    </Key>
+    <Property Name="ACCOUNTID" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="PRODUCTID" Type="varchar" MaxLength="16" />
+    <Property Name="ISOCURRENCYCODE" Type="varchar" MaxLength="3" />
+    <Property Name="PSEUDONAME" Type="varchar" MaxLength="50" />
+    <Property Name="ACCOUNTDESCRIPTION" Type="varchar" MaxLength="100" />
+    <Property Name="ACCOUNTNAME" Type="varchar" MaxLength="60" />
+    <Property Name="CLEAREDBALANCE" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="BOOKEDBALANCE" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="CHEQUEDEPOSITBALANCE" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="LASTINTERESTACCRUALDATE" Type="date" />
+    <Property Name="CREDITLIMIT" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="DEBITLIMIT" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="JOINTACCOUNT" Type="varchar" />
+    <Property Name="OPENDATE" Type="date" />
+    <Property Name="OPENEDBYUSER" Type="varchar" MaxLength="30" />
+    <Property Name="LASTSTATICAMENDMENTDATE" Type="timestamp" />
+    <Property Name="AMENDEDBYUSER" Type="varchar" MaxLength="30" />
+    <Property Name="LASTTRANSACTIONDATE" Type="date" />
+    <Property Name="STOPPED" Type="varchar" />
+    <Property Name="STOPPEDBYUSER" Type="varchar" MaxLength="30" />
+    <Property Name="STOPDATE" Type="date" />
+    <Property Name="STOPREASON" Type="varchar" MaxLength="30" />
+    <Property Name="STOPCODE" Type="varchar" MaxLength="10" />
+    <Property Name="CLOSED" Type="varchar" />
+    <Property Name="CLOSUREDATE" Type="date" />
+    <Property Name="DATEOFDORMANCY" Type="date" />
+    <Property Name="DORMANTSTATUS" Type="varchar" />
+    <Property Name="MINOPENINGBALANCEAMOUNT" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="LOWESTBALANCE" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="LOWESTBALANCEDATE" Type="date" />
+    <Property Name="PASSBOOKINDICATOR" Type="varchar" />
+    <Property Name="FEEWAIVEINDICATOR" Type="varchar" />
+    <Property Name="LIMITEXCESSACTION" Type="integer" />
+    <Property Name="LIMITINDICATOR" Type="integer" />
+    <Property Name="LIMITREF1" Type="varchar" MaxLength="30" />
+    <Property Name="LIMITREF2" Type="varchar" MaxLength="30" />
+    <Property Name="LIMITREF3" Type="varchar" MaxLength="30" />
+    <Property Name="LIMITREF4" Type="varchar" MaxLength="30" />
+    <Property Name="LIMITREF5" Type="varchar" MaxLength="30" />
+    <Property Name="LIMITREVIEWDATE" Type="timestamp" />
+    <Property Name="LIMITEXPIRYDATE" Type="timestamp" />
+    <Property Name="LASTCREDITLIMITCHANGEDATE" Type="date" />
+    <Property Name="LASTDEBITLIMITCHANGEDATE" Type="date" />
+    <Property Name="TAXINDICATORCR" Type="varchar" MaxLength="5" />
+    <Property Name="TAXINDICATORDR" Type="varchar" MaxLength="5" />
+    <Property Name="PEROUTERPROFILEID" Type="varchar" MaxLength="4" />
+    <Property Name="STANDINGORDER" Type="integer" />
+    <Property Name="SERVICEFEE" Type="integer" />
+    <Property Name="TAXATION" Type="integer" />
+    <Property Name="VERSIONNUM" Type="integer" />
+    <Property Name="DORMANTREACTIVATIONDATE" Type="date" />
+    <Property Name="BLOCKEDBALANCE" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="LASTINTHISTSTRIPDATE" Type="timestamp" />
+    <Property Name="LASTTRANSHISTSTRIPDATE" Type="timestamp" />
+    <Property Name="ACCOUNTTAKEONDATE" Type="timestamp" />
+    <Property Name="ACCRIGHTSINDICATOR" Type="decimal" Precision="2" />
+    <Property Name="ACCOUNTSTYLE" Type="varchar" MaxLength="5" />
+    <Property Name="CHARGEFUNDINGACCOUNTID" Type="varchar" MaxLength="20" />
+    <Property Name="LASTCREDITTRANSDTTM" Type="timestamp" />
+    <Property Name="LASTDEBITTRANSDTTM" Type="timestamp" />
+    <Property Name="TEMPACCOUNTLIMIT" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="TEMPLIMEXPIRYDATE" Type="timestamp" />
+    <Property Name="PRODUCTCONTEXTCODE" Type="varchar" MaxLength="60" />
+    <Property Name="BRANCHSORTCODE" Type="varchar" MaxLength="8" />
+    <Property Name="UBACCTRANSCOUNTER" Type="integer" />
+    <Property Name="UBACCOUNTSTATUS" Type="varchar" Nullable="false" MaxLength="5" />
+    <Property Name="UBISARCHIVE" Type="varchar" Nullable="false" />
+    <Property Name="UBISDELETE" Type="varchar" Nullable="false" />
+    <Property Name="UBCUSTOMERCODE" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="UBACCRIGHTSINDREASON" Type="varchar" MaxLength="256" />
+    <Property Name="UBACCRIGHTSINDCHANGEDT" Type="date" />
+    <Property Name="UBACCRIGHTSINDCHANGEDBY" Type="varchar" MaxLength="30" />
+    <Property Name="UBINDUSTRYCODE" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EXCHANGERATES">
+    <Key>
+      <PropertyRef Name="CURRENCYRATEID" />
+    </Key>
+    <Property Name="CURRENCYRATEID" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="FROMCURRENCYCODE" Type="varchar" MaxLength="3" />
+    <Property Name="TOCURRENCYCODE" Type="varchar" MaxLength="3" />
+    <Property Name="EXCHANGERATETYPE" Type="varchar" MaxLength="20" />
+    <Property Name="MULTIPLYDIVIDE" Type="character" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="TOLERANCE" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="RATE" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT1" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="RATE2" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT2" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER2" Type="character" />
+    <Property Name="RATE3" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT3" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER3" Type="character" />
+    <Property Name="RATE4" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT4" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER4" Type="character" />
+    <Property Name="RATE5" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT5" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER5" Type="character" />
+    <Property Name="RATE6" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT6" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER6" Type="character" />
+    <Property Name="VERSIONNUM" Type="integer" />
+    <Property Name="SPOTPERIODINDAYS" Type="smallint" />
+  </EntityType>
+  <EntityType Name="EXCHANGERATESHISTORY">
+    <Key>
+      <PropertyRef Name="EXCHANGERATEHISTORYID" />
+    </Key>
+    <Property Name="EXCHANGERATEHISTORYID" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="FROMCURRENCYCODE" Type="varchar" MaxLength="3" />
+    <Property Name="TOCURRENCYCODE" Type="varchar" MaxLength="3" />
+    <Property Name="EXCHANGERATETYPE" Type="varchar" MaxLength="20" />
+    <Property Name="MULTIPLYDIVIDE" Type="character" />
+    <Property Name="TOLERANCE" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="RATE" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT1" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="RATE2" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT2" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER2" Type="character" />
+    <Property Name="RATE3" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT3" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER3" Type="character" />
+    <Property Name="RATE4" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT4" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER4" Type="character" />
+    <Property Name="RATE5" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT5" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER5" Type="character" />
+    <Property Name="RATE6" Type="decimal" Precision="24" Scale="8" />
+    <Property Name="LIMIT6" Type="decimal" Precision="24" Scale="6" />
+    <Property Name="REFER6" Type="character" />
+    <Property Name="DATELASTMODIFIED" Type="timestamp" />
+    <Property Name="VERSIONNUM" Type="integer" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'AIBSIT.AIB.CUSTOMERBRANCH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="CUSTOMERBRANCH">
+    <Key>
+      <PropertyRef Name="ACCOUNTID" />
+    </Key>
+    <Property Name="ACCOUNTID" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="BRANCHCODE" Type="varchar" MaxLength="8" />
+    <Property Name="BRANCHNAME" Type="varchar" MaxLength="30" />
+    <Property Name="CUSTOMERNAME" Type="varchar" MaxLength="60" />
+  </EntityType>
+</Schema>

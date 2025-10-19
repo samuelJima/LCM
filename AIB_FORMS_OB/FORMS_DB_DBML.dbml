@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AIB_LC_DB" Class="FORMS_DB_DBMLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=AIB_LC_DB;Integrated Security=True" SettingsObjectName="AIB_FORMS_OB.Properties.Settings" SettingsPropertyName="AIB_LC_DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tbl_Permission" Member="Tbl_Permissions">
+    <Type Name="Tbl_Permission">
+      <Column Name="Permission_ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Permission_Name" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Permission_Tbl_RoleResourcePermission" Member="Tbl_RoleResourcePermissions" ThisKey="Permission_ID" OtherKey="Permission_ID" Type="Tbl_RoleResourcePermission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Role" Member="Tbl_Roles">
+    <Type Name="Tbl_Role">
+      <Column Name="Role_ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Role_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Role_Tbl_User" Member="Tbl_Users" ThisKey="Role_ID" OtherKey="RoleID" Type="Tbl_User" />
+      <Association Name="Tbl_Role_Tbl_RoleResourcePermission" Member="Tbl_RoleResourcePermissions" ThisKey="Role_ID" OtherKey="Role_ID" Type="Tbl_RoleResourcePermission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Users" Member="Tbl_Users">
+    <Type Name="Tbl_User">
+      <Column Name="UserID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="First_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Middle_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Dept_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Security_Question" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Security_Answer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RoleID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsNew" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Tbl_Role_Tbl_User" Member="Tbl_Role" ThisKey="RoleID" OtherKey="Role_ID" Type="Tbl_Role" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="TBL_Branch_Tbl_User" Member="TBL_Branch" ThisKey="Dept_ID" OtherKey="branchid" Type="TBL_Branch" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_RoleResourcePermission" Member="Tbl_RoleResourcePermissions">
+    <Type Name="Tbl_RoleResourcePermission">
+      <Column Name="Role_Resource_Permission_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Resource_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Role_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Permission_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Permission_Tbl_RoleResourcePermission" Member="Tbl_Permission" ThisKey="Permission_ID" OtherKey="Permission_ID" Type="Tbl_Permission" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Tbl_Role_Tbl_RoleResourcePermission" Member="Tbl_Role" ThisKey="Role_ID" OtherKey="Role_ID" Type="Tbl_Role" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Tbl_Resource_Tbl_RoleResourcePermission" Member="Tbl_Resource" ThisKey="Resource_ID" OtherKey="Resource_ID" Type="Tbl_Resource" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Resource" Member="Tbl_Resources">
+    <Type Name="Tbl_Resource">
+      <Column Name="Resource_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Resource_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Resource_Path" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tbl_Resource_Tbl_RoleResourcePermission" Member="Tbl_RoleResourcePermissions" ThisKey="Resource_ID" OtherKey="Resource_ID" Type="Tbl_RoleResourcePermission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_CORRESPONDENT_CURRENCY" Member="TBL_CORRESPONDENT_CURRENCies">
+    <Type Name="TBL_CORRESPONDENT_CURRENCY">
+      <Column Name="corrCurrencyId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="currencyCorrID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="TBL_LC_CORRESPONDENT_TBL_CORRESPONDENT_CURRENCY" Member="TBL_LC_CORRESPONDENT" ThisKey="corrCurrencyId" OtherKey="id" Type="TBL_LC_CORRESPONDENT" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="TBL_CURRENCY_TBL_CORRESPONDENT_CURRENCY" Member="TBL_CURRENCY" ThisKey="currencyCorrID" OtherKey="currencyId" Type="TBL_CURRENCY" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_COUNTRY" Member="TBL_COUNTRies">
+    <Type Name="TBL_COUNTRY">
+      <Column Name="Country_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Country_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Country_Code" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_COUNTRY_TBL_OPEN_THROUGH_BANK" Member="TBL_OPEN_THROUGH_BANKs" ThisKey="Country_Id" OtherKey="countryId" Type="TBL_OPEN_THROUGH_BANK" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_LC_CORRESPONDENT" Member="TBL_LC_CORRESPONDENTs">
+    <Type Name="TBL_LC_CORRESPONDENT">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="aibAcountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="correspondentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="swiftId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="telephoneNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="faxNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_LC_CORRESPONDENT_TBL_CORRESPONDENT_CURRENCY" Member="TBL_CORRESPONDENT_CURRENCies" ThisKey="id" OtherKey="corrCurrencyId" Type="TBL_CORRESPONDENT_CURRENCY" />
+      <Association Name="TBL_LC_CORRESPONDENT_TBL_LETTER_OF_CREDIT" Member="TBL_LETTER_OF_CREDITs" ThisKey="id" OtherKey="corespondenceID" Type="TBL_LETTER_OF_CREDIT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_CURRENCY" Member="TBL_CURRENCies">
+    <Type Name="TBL_CURRENCY">
+      <Column Name="currencyId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="currencyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_CURRENCY_TBL_CORRESPONDENT_CURRENCY" Member="TBL_CORRESPONDENT_CURRENCies" ThisKey="currencyId" OtherKey="currencyCorrID" Type="TBL_CORRESPONDENT_CURRENCY" />
+      <Association Name="TBL_CURRENCY_TBL_LC_PAYMENT_TYPE" Member="TBL_LC_PAYMENT_TYPEs" ThisKey="currencyId" OtherKey="currId" Type="TBL_LC_PAYMENT_TYPE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_AIB_CURRENCY_RATE" Member="TBL_AIB_CURRENCY_RATEs">
+    <Type Name="TBL_AIB_CURRENCY_RATE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fromCurrencyCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="toCurrencyCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="exchangeRateType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="currencyRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="valueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_Branch" Member="TBL_Branches">
+    <Type Name="TBL_Branch">
+      <Column Name="branchid" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="branchName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchAbrivation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="permitAbrivation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_Branch_Tbl_User" Member="Tbl_Users" ThisKey="branchid" OtherKey="Dept_ID" Type="Tbl_User" />
+      <Association Name="TBL_Branch_TBL_LETTER_OF_CREDIT" Member="TBL_LETTER_OF_CREDITs" ThisKey="branchid" OtherKey="branchCode" Type="TBL_LETTER_OF_CREDIT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_OPEN_THROUGH_BANK" Member="TBL_OPEN_THROUGH_BANKs">
+    <Type Name="TBL_OPEN_THROUGH_BANK">
+      <Column Name="opId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bankName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="bankCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="countryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_OPEN_THROUGH_BANK_TBL_LETTER_OF_CREDIT" Member="TBL_LETTER_OF_CREDITs" ThisKey="opId" OtherKey="openThroughId" Type="TBL_LETTER_OF_CREDIT" />
+      <Association Name="TBL_COUNTRY_TBL_OPEN_THROUGH_BANK" Member="TBL_COUNTRY" ThisKey="countryId" OtherKey="Country_Id" Type="TBL_COUNTRY" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_CORRESPONDNCE_CURRENCY" Member="VW_CORRESPONDNCE_CURRENCies">
+    <Type Name="VW_CORRESPONDNCE_CURRENCY">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="correspondentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="aibAcountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="currencyId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="currencyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="telephoneNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="faxNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="aibAccountNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_LC_PAYMENT_TYPE" Member="TBL_LC_PAYMENT_TYPEs">
+    <Type Name="TBL_LC_PAYMENT_TYPE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="paymentTypeName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="typeCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="minimumTarif" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="maximumTarif" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lowerTarifPercent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="middleTarifPercent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="upperTarifPercent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="currId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TBL_CURRENCY_TBL_LC_PAYMENT_TYPE" Member="TBL_CURRENCY" ThisKey="currId" OtherKey="currencyId" Type="TBL_CURRENCY" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_LETTER_OF_CREDIT" Member="TBL_LETTER_OF_CREDITs">
+    <Type Name="TBL_LETTER_OF_CREDIT">
+      <Column Name="lcNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="lcCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="permitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="permitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="openingCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lcOpeningCurrencyRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="marginPaid" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="corespondenceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="openThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="supplyerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="customerAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="branchCode" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="lcStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lcOpeningDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="confirmationStratus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="currencyType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tollerance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="totalInvoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="accountBranch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_LETTER_OF_CREDIT_TBL_LC_EXCESS_AMOUNT" Member="TBL_LC_EXCESS_AMOUNTs" ThisKey="lcNumber" OtherKey="excessLCNumber" Type="TBL_LC_EXCESS_AMOUNT" />
+      <Association Name="TBL_LETTER_OF_CREDIT_TBL_LC_INCREMENT" Member="TBL_LC_INCREMENTs" ThisKey="lcNumber" OtherKey="increntLCNumber" Type="TBL_LC_INCREMENT" />
+      <Association Name="TBL_LETTER_OF_CREDIT_TBL_LC_EXTENTION" Member="TBL_LC_EXTENTIONs" ThisKey="lcNumber" OtherKey="extLcNumber" Type="TBL_LC_EXTENTION" />
+      <Association Name="TBL_LETTER_OF_CREDIT_TBL_INVOICE" Member="TBL_INVOICEs" ThisKey="lcNumber" OtherKey="invoiceLCNumber" Type="TBL_INVOICE" />
+      <Association Name="TBL_Branch_TBL_LETTER_OF_CREDIT" Member="TBL_Branch" ThisKey="branchCode" OtherKey="branchid" Type="TBL_Branch" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="TBL_LC_CORRESPONDENT_TBL_LETTER_OF_CREDIT" Member="TBL_LC_CORRESPONDENT" ThisKey="corespondenceID" OtherKey="id" Type="TBL_LC_CORRESPONDENT" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="TBL_OPEN_THROUGH_BANK_TBL_LETTER_OF_CREDIT" Member="TBL_OPEN_THROUGH_BANK" ThisKey="openThroughId" OtherKey="opId" Type="TBL_OPEN_THROUGH_BANK" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_LC_EXCESS_AMOUNT" Member="TBL_LC_EXCESS_AMOUNTs">
+    <Type Name="TBL_LC_EXCESS_AMOUNT">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="excessAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="excessPermitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="excessPermitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="excessAmountValueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="excessAmountRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="excessLCNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_LETTER_OF_CREDIT_TBL_LC_EXCESS_AMOUNT" Member="TBL_LETTER_OF_CREDIT" ThisKey="excessLCNumber" OtherKey="lcNumber" Type="TBL_LETTER_OF_CREDIT" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_LC_INCREMENT" Member="TBL_LC_INCREMENTs">
+    <Type Name="TBL_LC_INCREMENT">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="incremetAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="incrementPermitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="incrementPermitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="incrementAmountValueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="incrementAmountRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="increntLCNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_LETTER_OF_CREDIT_TBL_LC_INCREMENT" Member="TBL_LETTER_OF_CREDIT" ThisKey="increntLCNumber" OtherKey="lcNumber" Type="TBL_LETTER_OF_CREDIT" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_LC_EXTENTION" Member="TBL_LC_EXTENTIONs">
+    <Type Name="TBL_LC_EXTENTION">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="extentionAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="extentionPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="extentionDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="extInvoiceSequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="extLcNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TBL_LETTER_OF_CREDIT_TBL_LC_EXTENTION" Member="TBL_LETTER_OF_CREDIT" ThisKey="extLcNumber" OtherKey="lcNumber" Type="TBL_LETTER_OF_CREDIT" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_LC_EXTENTION" Member="VW_LC_EXTENTIONs">
+    <Type Name="VW_LC_EXTENTION">
+      <Column Name="lcNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="valueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="lcCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="permitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="permitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcOpeningCurrencyRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="marginPaid" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="correspondentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="bankName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="bankCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="supplyerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="customerAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchAbrivation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lcStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="confirmationStratus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="currencyType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tollerance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="totalInvoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="openingCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="accountBranch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="extentionAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="extentionPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="extentionDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="extInvoiceSequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="openThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="corespondenceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_INVOICE" Member="TBL_INVOICEs">
+    <Type Name="TBL_INVOICE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="referenceNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="invoiceDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="invoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="invoiceRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="openThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="openThroughBank" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="descripancyStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="invoiceLCNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="interestBeginDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="invoiceSequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sequenceStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="numberOfSwift" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="shipmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="TBL_LETTER_OF_CREDIT_TBL_INVOICE" Member="TBL_LETTER_OF_CREDIT" ThisKey="invoiceLCNumber" OtherKey="lcNumber" Type="TBL_LETTER_OF_CREDIT" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DETAIL_LC" Member="VW_DETAIL_LCs">
+    <Type Name="VW_DETAIL_LC">
+      <Column Name="lcNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lcCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="permitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="permitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcOpeningCurrencyRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="marginPaid" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="correspondentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="aibAcountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="corespondenceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="openThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bankName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="bankCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="supplyerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="customerAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchAbrivation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lcStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lcOpeningDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="customerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="confirmationStratus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="currencyType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tollerance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="totalInvoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="openingCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="accountBranch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="openingPeriods" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userExpirationDates" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_LC_DETAIL_ADVICE_DETAIL" Member="VW_LC_DETAIL_ADVICE_DETAILs">
+    <Type Name="VW_LC_DETAIL_ADVICE_DETAIL">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="referenceNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="invoiceDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="invoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="invoiceRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="invoiceOpenThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="openThroughBank" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="descripancyStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="numberOfSwift" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sequenceStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="invoiceSequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lcCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="permitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="permitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcOpeningCurrencyRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="marginPaid" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="correspondentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="aibAcountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="openThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bankName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="bankCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="supplyerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="customerAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchAbrivation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lcStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="confirmationStratus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="currencyType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tollerance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="totalInvoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="openingCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="accountBranch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="shipmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="openingPeriods" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userExpirationDates" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcOpeningDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_LC_WITH_ADVICE_SIGHT" Member="VW_LC_WITH_ADVICE_SIGHTs">
+    <Type Name="VW_LC_WITH_ADVICE_SIGHT">
+      <Column Name="lcNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lcCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="permitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="permitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="openingCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lcOpeningCurrencyRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="corespondenceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="openThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="supplyerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="customerAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="lcStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="referenceNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="invoiceDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="invoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="invoiceRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="openThroughBank" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="invOpenThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchAbrivation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="invoiceLCNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="descripancyStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="marginPaid" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="currencyType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tollerance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="interestBeginDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="totalInvoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="invoiceSequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sequenceStatus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="numberOfSwift" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="branchCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="shipmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="openingPeriods" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userExpirationDates" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcOpeningDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="confirmationStratus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_LC_INCREMENTAMOUNT" Member="VW_LC_INCREMENTAMOUNTs">
+    <Type Name="VW_LC_INCREMENTAMOUNT">
+      <Column Name="lcNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lcCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="permitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="permitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcOpeningCurrencyRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="marginPaid" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="correspondentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="aibAcountNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="corespondenceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="openThroughId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bankName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="bankCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="supplyerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="customerAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchAbrivation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="customerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="confirmationStratus" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="currencyType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tollerance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="totalInvoiceValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="openingCurrency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="accountBranch" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="branchCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="incremetAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="incrementPermitYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="incrementPermitCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="incrementAmountValueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="incrementAmountRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="openingPeriods" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userExpirationDates" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lcOpeningDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spCreat_Role" Method="spCreat_Role">
+    <Parameter Name="roleName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdate_SecurityQuestion" Method="spUpdate_SecurityQuestion">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="SQ" Parameter="sQ" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SA" Parameter="sA" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCreate_Permission" Method="spCreate_Permission">
+    <Parameter Name="permissionName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCreate_Resource" Method="spCreate_Resource">
+    <Parameter Name="resourceName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Resource_Path" Parameter="resource_Path" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCreate_RoleResourcePermission" Method="spCreate_RoleResourcePermission">
+    <Parameter Name="resourceID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="roleID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="permissionID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdate_Role" Method="spUpdate_Role">
+    <Parameter Name="roleID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="roleName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdate_Resource" Method="spUpdate_Resource">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="resourceName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="resourcePath" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="description" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spCreate_User" Method="spCreate_User">
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="firstname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="middlename" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lastname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="deptID" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="securityQuestion" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="securityAnswer" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RoleID" Parameter="roleID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="IsNew" Parameter="isNew" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdate_FirstTimeAccess" Method="spUpdate_FirstTimeAccess">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="IsNew" Parameter="isNew" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdate_User" Method="spUpdate_User">
+    <Parameter Name="id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="username" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="firstname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="middlename" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lastname" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="deptID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RoleID" Parameter="roleID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdate_UserStatus" Method="spUpdate_UserStatus">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdate_Password" Method="spUpdate_Password">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.saveOpenThroughBank" Method="saveOpenThroughBank">
+    <Parameter Name="bankName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bankCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="countryId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ciyt" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateOpenThroughBank" Method="updateOpenThroughBank">
+    <Parameter Name="bankName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bankCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="countryId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ciyt" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bankID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateInterestbeginDate" Method="updateInterestbeginDate">
+    <Parameter Name="intrerestBeginDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="invoiceId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateLCStatus" Method="updateLCStatus">
+    <Parameter Name="lcNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lcStatus" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateInvoiceStatus" Method="updateInvoiceStatus">
+    <Parameter Name="status" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="invoiceId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.saveBranchs" Method="saveBranchs">
+    <Parameter Name="branchName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="branchAbrivation" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="branchCode" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateBranchs" Method="updateBranchs">
+    <Parameter Name="branchId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="branchName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="branchAbrivation" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="branchcode" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateExcessAmount" Method="updateExcessAmount">
+    <Parameter Name="excessAmount" Type="System.Double" DbType="Float" />
+    <Parameter Name="excessLCNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.saveLCExcessAmount" Method="saveLCExcessAmount">
+    <Parameter Name="excessAmount" Type="System.Double" DbType="Float" />
+    <Parameter Name="ecessPermitYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="excessPermitCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="excessValueDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="excessAmountrate" Type="System.Double" DbType="Float" />
+    <Parameter Name="excessLCNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.saveLCIncrementAmount" Method="saveLCIncrementAmount">
+    <Parameter Name="incrementAmount" Type="System.Double" DbType="Float" />
+    <Parameter Name="incrementPermitYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="incrementPermitCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="incrementValueDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="incrementAmountrate" Type="System.Double" DbType="Float" />
+    <Parameter Name="incrementLCNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.incrementLCValue" Method="incrementLCValue">
+    <Parameter Name="excessAmount" Type="System.Double" DbType="Float" />
+    <Parameter Name="excessLCNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updatelcIncrementAmount" Method="updatelcIncrementAmount">
+    <Parameter Name="incrementAmount" Type="System.Double" DbType="Float" />
+    <Parameter Name="incrementPermitYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="incrementPermitCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="incrementValueDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="incrementAmountrate" Type="System.Double" DbType="Float" />
+    <Parameter Name="incrementLCNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="incId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.saveLCExtention" Method="saveLCExtention">
+    <Parameter Name="extentionAmount" Type="System.Double" DbType="Float" />
+    <Parameter Name="extentionPeriods" Type="System.Int32" DbType="Int" />
+    <Parameter Name="extentionValueDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="extentioninvSequence" Type="System.Int32" DbType="Int" />
+    <Parameter Name="extentionLCNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateExtention" Method="updateExtention">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ExtentionPeriod" Parameter="extentionPeriod" Type="System.Int32" DbType="Int" />
+    <Parameter Name="extentionLCNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.saveLCOpening" Method="saveLCOpening">
+    <Parameter Name="lcNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lccode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="valueDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="permitCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="permitYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lcValue" Type="System.Double" DbType="Float" />
+    <Parameter Name="currency" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="openingCurrRate" Type="System.Double" DbType="Float" />
+    <Parameter Name="marginPaid" Type="System.Double" DbType="Float" />
+    <Parameter Name="rembBankId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="openThroughBankId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="supplyer" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="branchCode" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="customerAccount" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lcStatus" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lcOpeningDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="customerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="confirmationStatus" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="currencyType" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="tollerance" Type="System.Double" DbType="Float" />
+    <Parameter Name="accountBranch" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="openedForPeriod" Type="System.Int32" DbType="Int" />
+    <Parameter Name="userexpirationLimit" Type="System.Int32" DbType="Int" />
+    <Parameter Name="openedByid" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateLCOpening" Method="updateLCOpening">
+    <Parameter Name="lcNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="valueDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="permitCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="permitYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lcValue" Type="System.Double" DbType="Float" />
+    <Parameter Name="currency" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="openingCurrRate" Type="System.Double" DbType="Float" />
+    <Parameter Name="marginPaid" Type="System.Double" DbType="Float" />
+    <Parameter Name="rembBankId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="openThroughBankId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="supplyer" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="customerAccount" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="customerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="confirmationStatus" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="currencyType" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="tollerance" Type="System.Double" DbType="Float" />
+    <Parameter Name="accountBranch" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="openedForPeriod" Type="System.Int32" DbType="Int" />
+    <Parameter Name="userexpirationLimit" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

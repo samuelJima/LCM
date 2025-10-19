@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2876b242fec04b31b163157de579eea6" Name="Diagram1" ZoomLevel="40">
+        <EntityTypeShape EntityType="AIBSITModel.ACCOUNT" Width="2.5" PointX="2.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIBSITModel.EXCHANGERATE" Width="2.375" PointX="11.75" PointY="0.5" />
+        <EntityTypeShape EntityType="AIBSITModel.EXCHANGERATESHISTORY" Width="3.125" PointX="14.25" PointY="6.125" />
+        <EntityTypeShape EntityType="AIBSITModel.BFTB_BRANCH" Width="3.75" PointX="6.625" PointY="2.875" />
+        <EntityTypeShape EntityType="AIBSITModel.CUSTOMERBRANCH" Width="1.5" PointX="11" PointY="11.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
